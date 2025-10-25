@@ -1,0 +1,23 @@
+{
+  "hana": {
+    "host": "seu-servidor-hana.com",
+    "port": 30015,
+    "user": "seu_usuario",
+    "password": "sua_senha",
+    "database": "SYSTEMDB"
+  },
+  "report": {
+    "output_format": "excel",
+    "output_dir": "reports",
+    "include_charts": true,
+    "retention_days": 30
+  },
+  "metrics": {
+    "collect_cpu": true,
+    "collect_memory": true,
+    "collect_disk": true,
+    "collect_users": true,
+    "collect_response_time": true,
+    "collect_connections": true
+  }
+}
