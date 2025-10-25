@@ -1,0 +1,45 @@
+# Configuração do SAP RAG System
+
+# Modelo de embeddings
+embedding:
+  model_name: "sentence-transformers/paraphrase-multilingual-mpnet-base-v2"
+  # Alternativas:
+  # - "sentence-transformers/all-MiniLM-L6-v2" (mais rápido, inglês)
+  # - "sentence-transformers/multi-qa-mpnet-base-dot-v1" (otimizado para Q&A)
+
+# Vector Store
+vector_store:
+  type: "chroma"  # "chroma" ou "faiss"
+  persist_directory: "./data"
+
+# Processamento de documentos
+document_processing:
+  chunk_size: 1000
+  chunk_overlap: 200
+  supported_formats:
+    - pdf
+    - docx
+
+# Retrieval
+retrieval:
+  top_k: 5  # Número de documentos a recuperar por consulta
+  min_similarity: 0.3  # Similaridade mínima para considerar relevante
+
+# LLM (opcional - para geração de respostas)
+llm:
+  provider: "openai"  # "openai", "anthropic", "local"
+  model: "gpt-3.5-turbo"
+  api_key_env: "OPENAI_API_KEY"
+  temperature: 0.7
+  max_tokens: 500
+
+# Logging
+logging:
+  level: "INFO"
+  file: "sap_rag.log"
+
+# Caminhos
+paths:
+  documents: "./data/documents"
+  processed: "./data/processed"
+  index: "./data/index"
